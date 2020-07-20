@@ -18,7 +18,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.longjunhao.jetpackdemo.R;
 import com.longjunhao.jetpackdemo.databinding.FragmentContentListBinding;
 import com.longjunhao.jetpackdemo.db.entity.ContentEntity;
-import com.longjunhao.jetpackdemo.mode.Content;
+import com.longjunhao.jetpackdemo.model.Content;
 import com.longjunhao.jetpackdemo.viewmodel.ContentListViewModel;
 import java.util.List;
 

@@ -17,7 +17,7 @@
 package com.longjunhao.jetpackdemo.ui;
     
     
-    import com.longjunhao.jetpackdemo.mode.Content;
+    import com.longjunhao.jetpackdemo.model.Content;
 
 public interface ContentClickCallback {
     void onClick(Content product);

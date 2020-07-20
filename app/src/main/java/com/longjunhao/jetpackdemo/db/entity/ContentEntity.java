@@ -3,7 +3,7 @@ package com.longjunhao.jetpackdemo.db.entity;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
-import com.longjunhao.jetpackdemo.mode.Content;
+import com.longjunhao.jetpackdemo.model.Content;
 import java.util.Date;
 
 /**

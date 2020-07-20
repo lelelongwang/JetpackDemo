@@ -47,7 +47,7 @@
 
         <variable
             name="content"
-            type="com.longjunhao.jetpackdemo.mode.Content" />
+            type="com.longjunhao.jetpackdemo.model.Content" />
 
         <variable
             name="callback"

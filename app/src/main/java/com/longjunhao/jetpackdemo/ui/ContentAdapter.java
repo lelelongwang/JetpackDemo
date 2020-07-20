@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 import com.longjunhao.jetpackdemo.R;
 import com.longjunhao.jetpackdemo.databinding.ContentItemBinding;
-import com.longjunhao.jetpackdemo.mode.Content;
+import com.longjunhao.jetpackdemo.model.Content;
 import java.util.List;
 
 /**

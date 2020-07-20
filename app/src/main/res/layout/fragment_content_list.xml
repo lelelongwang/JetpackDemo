@@ -16,19 +16,19 @@
             android:layout_marginStart="8dp"
             android:orientation="horizontal">
 
-            <ImageButton
-                android:id="@+id/contents_search_btn"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:contentDescription="搜索内容"
-                app:srcCompat="@drawable/ic_search_black_24dp" />
-
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/contents_search_box"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:hint="搜索内容" />
+
+            <ImageButton
+                android:id="@+id/contents_search_btn"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:contentDescription="搜索内容"
+                app:srcCompat="@drawable/ic_search_black_24dp" />
 
         </LinearLayout>
 

@@ -1,4 +1,4 @@
-package com.longjunhao.jetpackdemo.mode;
+package com.longjunhao.jetpackdemo.model;
 
 import java.util.Date;
 
