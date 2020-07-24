@@ -51,11 +51,16 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'androidx.cardview:cardview:1.0.0'
 
-
     //Room:
     def room_version = "2.2.5"
     implementation "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"
+
+    //paging 3:
+    def paging_version = "3.0.0-alpha03"
+    implementation "androidx.paging:paging-runtime:$paging_version"
+    implementation "androidx.paging:paging-guava:$paging_version"
+    testImplementation "androidx.paging:paging-common:$paging_version"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'

@@ -7,6 +7,7 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
+import androidx.room.migration.Migration;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 import com.longjunhao.jetpackdemo.AppExecutors;
 import com.longjunhao.jetpackdemo.db.converter.DateConverter;
@@ -22,7 +23,7 @@ import java.util.List;
  * @date 2020/07/16
  */
 
-@Database(entities = {ContentEntity.class, ContentFtsEntity.class}, version = 1)
+@Database(entities = {ContentEntity.class, ContentFtsEntity.class}, version = 3)
 @TypeConverters(DateConverter.class)
 public abstract class AppDatabase extends RoomDatabase {
     
@@ -74,6 +75,7 @@ public abstract class AppDatabase extends RoomDatabase {
                     });
                 }
             })
+            .addMigrations(MIGRATION_1_2, MIGRATION_2_3)
             .build();
     }
     
@@ -110,4 +112,51 @@ public abstract class AppDatabase extends RoomDatabase {
     public MutableLiveData<Boolean> getDatabaseCreated() {
         return mIsDatabaseCreated;
     }
+
+    static final Migration MIGRATION_1_2 = new Migration(1, 2) {
+
+        /**
+         * .
+         * 本次更新数据库是因为在ContentEntity.java中新增了@PrimaryKey(autoGenerate = true)中的
+         * autoGenerate = true属性，提示要更新数据库版本。
+         * @param database
+         */
+        @Override
+        public void migrate(@NonNull SupportSQLiteDatabase database) {
+            // Room uses an own database hash to uniquely identify the database
+            // Since version 1 does not use Room, it doesn't have the database hash associated.
+            // By implementing a Migration class, we're telling Room that it should use the data
+            // from version 1 to version 2.
+            // If no migration is provided, then the tables will be dropped and recreated.
+            // Since we didn't alter the table, there's nothing else to do here.
+        }
+    };
+
+    static final Migration MIGRATION_2_3 = new Migration(2, 3) {
+
+        /**
+         *.
+         * 一些常用的语句：
+         * // Create the new table
+         * database.execSQL(
+         *         "CREATE TABLE users_new (userid TEXT, username TEXT, last_update INTEGER,"
+         *                 + " PRIMARY KEY(userid))");
+         * // Copy the data
+         * database.execSQL("INSERT INTO users_new (userid, username, last_update) "
+         *         + "SELECT userid, username, 0 "
+         *         + "FROM users");
+         * // Remove the old table
+         * database.execSQL("DROP TABLE users");
+         * // Change the table name to the correct one
+         * database.execSQL("ALTER TABLE users_new RENAME TO users");
+         *
+         *
+         * 本次更新数据库是因为要修改数据库中某一列
+         * @param database
+         */
+        @Override
+        public void migrate(@NonNull SupportSQLiteDatabase database) {
+            database.execSQL("ALTER TABLE contents RENAME COLUMN postedAt TO publishTime");
+        }
+    };
 }

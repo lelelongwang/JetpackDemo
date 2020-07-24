@@ -17,5 +17,5 @@ public interface Content {
     
     String getChapterName();
     
-    Date getPostedAt();
+    long getPublishTime();
 }

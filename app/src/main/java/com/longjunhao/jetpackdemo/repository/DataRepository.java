@@ -1,5 +1,6 @@
 package com.longjunhao.jetpackdemo.repository;
 
+import android.util.Log;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MediatorLiveData;
 import androidx.lifecycle.Observer;
@@ -15,6 +16,7 @@ import java.util.List;
  * @date 2020/07/17
  */
 public class DataRepository {
+    private static final String TAG = "DataRepository";
     
     private static DataRepository sInstance;
     
@@ -32,6 +34,7 @@ public class DataRepository {
                 public void onChanged(List<ContentEntity> contentEntities) {
                     if (mDatabase.getDatabaseCreated().getValue() != null) {
                         mObservableContents.postValue(contentEntities);
+                        Log.d(TAG, "DataRepository: size="+contentEntities.size());
                     }
                 }
             });

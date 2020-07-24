@@ -91,7 +91,7 @@ public class ContentListFragment extends Fragment {
         public void onClick(Content product) {
             if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
                 Log.d(TAG, "onClick: click item");
-                Toast.makeText(requireActivity(), "点击item", Toast.LENGTH_SHORT).show();
+                Toast.makeText(requireActivity(), "点击第 "+product.getId()+" 个item", Toast.LENGTH_SHORT).show();
             }
         }
     };

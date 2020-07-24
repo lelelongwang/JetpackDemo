@@ -1,5 +1,6 @@
 package com.longjunhao.jetpackdemo.db.entity;
 
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
@@ -15,12 +16,16 @@ import java.util.Date;
 @Entity(tableName = "contents")
 public class ContentEntity implements Content {
     
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     private int id;
+    @ColumnInfo
     private String title;
+    @ColumnInfo
     private String author;
+    @ColumnInfo
     private String chapterName;
-    private Date postedAt;
+    @ColumnInfo
+    private long publishTime;
     
     @Override
     public int getId() {
@@ -59,24 +64,24 @@ public class ContentEntity implements Content {
     }
     
     @Override
-    public Date getPostedAt() {
-        return postedAt;
+    public long getPublishTime() {
+        return publishTime;
     }
     
-    public void setPostedAt(Date postedAt) {
-        this.postedAt = postedAt;
+    public void setPublishTime(long publishTime) {
+        this.publishTime = publishTime;
     }
     
     public ContentEntity() {
     }
     
     @Ignore
-    public ContentEntity(int id, String title, String author, String chapterName, Date postedAt) {
+    public ContentEntity(int id, String title, String author, String chapterName, long publishTime) {
         this.id = id;
         this.title = title;
         this.author = author;
         this.chapterName = chapterName;
-        this.postedAt = postedAt;
+        this.publishTime = publishTime;
     }
     
     public ContentEntity(Content content) {
@@ -84,6 +89,6 @@ public class ContentEntity implements Content {
         this.title = content.getTitle();
         this.author = content.getAuthor();
         this.chapterName = content.getChapterName();
-        this.postedAt = content.getPostedAt();
+        this.publishTime = content.getPublishTime();
     }
 }

@@ -61,7 +61,7 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ContentV
                         && TextUtils.equals(newContent.getTitle(), oldContent.getTitle())
                         && TextUtils.equals(newContent.getAuthor(), oldContent.getAuthor())
                         && TextUtils.equals(newContent.getChapterName(), oldContent.getChapterName())
-                        && newContent.getPostedAt() == oldContent.getPostedAt();
+                        && newContent.getPublishTime() == oldContent.getPublishTime();
                 }
             });
             mContentList = contentList;
