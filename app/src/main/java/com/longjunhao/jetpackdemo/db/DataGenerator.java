@@ -1,6 +1,5 @@
 package com.longjunhao.jetpackdemo.db;
 
-import android.util.Log;
 import com.longjunhao.jetpackdemo.db.entity.ContentEntity;
 import java.util.ArrayList;
 import java.util.List;
@@ -47,7 +46,7 @@ public class DataGenerator {
                     content.setAuthor(AUTHOR[j]);
                     content.setChapterName(CHAPTER_NAME[j]);
                 }
-                content.setId(TITLE.length * i + j + 1);
+                content.setId(SECOND_TITLE.length * i + j + 1);
                 contents.add(content);
             }
         }
